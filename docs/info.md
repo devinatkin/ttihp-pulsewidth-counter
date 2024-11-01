@@ -9,12 +9,12 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-Explain how your project works
+Simple Test Project which counts the width of an input square wave returning the time high, time low, and period.
 
 ## How to test
 
-Explain how to use your project
+This project works by counting the time high, time low, and period of the input signal. The design can be tested by feeding in a PWM signal and reading how the output changes. 
 
 ## External hardware
 
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+No external hardware is required for this proejct ot function.
