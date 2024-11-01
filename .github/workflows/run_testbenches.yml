@@ -25,6 +25,7 @@ jobs:
 
     - name: Install Pip Requirements
       run: |
+        cd test
         pip install -r requirements.txt
 
     - name: Run testbenches
