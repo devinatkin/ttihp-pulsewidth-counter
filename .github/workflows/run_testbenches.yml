@@ -1,0 +1,49 @@
+name: Run Testbenches
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup environment
+      run: |
+        sudo apt-get update
+
+    - name: Install Icarus Verilog
+      run: |
+        sudo apt-get install -y iverilog
+
+    - name: Install Pip Requirements
+      run: |
+        pip install -r requirements.txt
+
+    - name: Run testbenches
+      run: |
+        make tb_frequency_counter &
+        wait
+
+    - name: Upload testbench result graphs
+      uses: actions/upload-artifact@v4
+      with:
+        name: Image Files
+        path: sim_out/*.png
+
+    - name: Upload testbench result txt files
+      uses: actions/upload-artifact@v4
+      with:
+        name: Results Files
+        path: sim_out/*.txt
+
+    - name: Cleanup
+      run: |
+        make clean
