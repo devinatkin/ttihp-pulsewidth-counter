@@ -21,3 +21,7 @@ all: tb_frequency_counter
 tb_frequency_counter:
 	$(IVL) -o $(OUT_DIR)/$@.vvp src/frequency_counter.v tb/tb_frequency_counter.v
 	$(VVP) $(OUT_DIR)/$@.vvp
+
+clean:
+	@echo Cleaning up...
+	rm -rf $(OUT_DIR)
