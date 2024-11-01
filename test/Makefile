@@ -5,7 +5,10 @@
 SIM ?= icarus
 TOPLEVEL_LANG ?= verilog
 SRC_DIR = $(PWD)/../src
-PROJECT_SOURCES = project.v
+PROJECT_SOURCES = \
+	tt_um_devinatkin_pulse_width_counter.v \
+	param_mux.v \
+	frequency_counter.v
 
 ifneq ($(GATES),yes)
 
