@@ -18,13 +18,15 @@ project:
   # Don't forget to also update `PROJECT_SOURCES` in test/Makefile.
   source_files:
     - "ttihp_um_pulsewidth_counter.v"
+    - "frequency_counter.v"
+    - "param_mux.v"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 pinout:
   # Inputs
-  ui[0]: ""
-  ui[1]: ""
-  ui[2]: ""
+  ui[0]: "freq_in"
+  ui[1]: "out_sel[0]"
+  ui[2]: "out_sel[1]"
   ui[3]: ""
   ui[4]: ""
   ui[5]: ""
@@ -32,14 +34,14 @@ pinout:
   ui[7]: ""
 
   # Outputs
-  uo[0]: ""
-  uo[1]: ""
-  uo[2]: ""
-  uo[3]: ""
-  uo[4]: ""
-  uo[5]: ""
-  uo[6]: ""
-  uo[7]: ""
+  uo[0]: "time_hi_lo_per[0]"
+  uo[1]: "time_hi_lo_per[1]"
+  uo[2]: "time_hi_lo_per[2]"
+  uo[3]: "time_hi_lo_per[3]"
+  uo[4]: "time_hi_lo_per[4]"
+  uo[5]: "time_hi_lo_per[5]"
+  uo[6]: "time_hi_lo_per[6]"
+  uo[7]: "time_hi_lo_per[7]"
 
   # Bidirectional pins
   uio[0]: "uart_tx"
