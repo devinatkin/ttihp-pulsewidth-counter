@@ -11,6 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
+      matrix:
+        testbench: 
+          - tb_frequency_counter
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -23,28 +27,13 @@ jobs:
       run: |
         sudo apt-get install -y iverilog
 
-    - name: Install Pip Requirements
+    - name: Run testbench
       run: |
-        cd test
-        pip install -r requirements.txt
-
-    - name: Run testbenches
-      run: |
-        make tb_frequency_counter &
+        cd tb
+        make ${{ matrix.testbench }} &
         wait
-
-    - name: Upload testbench result graphs
-      uses: actions/upload-artifact@v4
-      with:
-        name: Image Files
-        path: sim_out/*.png
-
-    - name: Upload testbench result txt files
-      uses: actions/upload-artifact@v4
-      with:
-        name: Results Files
-        path: sim_out/*.txt
 
     - name: Cleanup
       run: |
+        cd tb
         make clean
