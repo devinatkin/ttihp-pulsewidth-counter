@@ -29,11 +29,9 @@ jobs:
 
     - name: Run testbench
       run: |
-        cd tb
         make ${{ matrix.testbench }} &
         wait
 
     - name: Cleanup
       run: |
-        cd tb
         make clean
