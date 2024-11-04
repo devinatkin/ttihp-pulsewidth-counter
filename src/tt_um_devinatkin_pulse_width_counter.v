@@ -19,9 +19,9 @@ module tt_um_devinatkin_pulse_width_counter (
 
   parameter CLOCK_FREQ = 50_000_000; // 50 MHz
   parameter CLOCK_PERIOD = 1000 / (CLOCK_FREQ / 1_000_000); // Clock period in nanoseconds
-  parameter COUNTER_BITS = 16; // Updated counter width to 16 bits
+  parameter COUNTER_BITS = 32; // Updated counter width to 32 bits
 
-  parameter sel_width = $clog2(6); 
+  parameter sel_width = $clog2(12); 
 
   // All output pins must be assigned. If not used, assign to 0.
   assign uio_out = 0;
@@ -53,7 +53,7 @@ module tt_um_devinatkin_pulse_width_counter (
 
 
   param_mux #(
-      .N(6),
+      .N(12),
       .WIDTH(8) // Output width remains 8 bits for each high/low segment
   ) mux (
       .data_in({time_high, time_low, period}),
@@ -62,7 +62,7 @@ module tt_um_devinatkin_pulse_width_counter (
   );
 
   assign freq_in = ui_in[0];
-  assign sel = ui_in[3:1]; // Updated to include the new high/low select bit
+  assign sel = ui_in[4:1]; // Updated to include the new high/low select bit
   assign uo_out[7:0] = data_out;
 
 endmodule
