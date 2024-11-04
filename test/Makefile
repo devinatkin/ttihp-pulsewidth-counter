@@ -8,7 +8,11 @@ SRC_DIR = $(PWD)/../src
 PROJECT_SOURCES = \
 	tt_um_devinatkin_pulse_width_counter.v \
 	param_mux.v \
-	frequency_counter.v
+	frequency_counter.v \
+	uart_rx.sv \
+	uart_tx.sv \
+	uart.sv \
+	output_selector.v
 
 ifneq ($(GATES),yes)
 

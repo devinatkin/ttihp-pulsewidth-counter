@@ -23,7 +23,10 @@ tb_param_mux:
 	$(IVL) -o $(OUT_DIR)/$@.vvp src/param_mux.v tb/tb_param_mux.v
 	$(VVP) $(OUT_DIR)/$@.vvp
 
-
+tb_output_selector:
+	$(IVL) -o $(OUT_DIR)/$@.vvp src/output_selector.v tb/tb_output_selector.v
+	$(VVP) $(OUT_DIR)/$@.vvp
+	
 clean:
 	@echo Cleaning up...
 	rm -rf $(OUT_DIR)

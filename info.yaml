@@ -20,6 +20,10 @@ project:
     - "tt_um_devinatkin_pulse_width_counter.v"
     - "frequency_counter.v"
     - "param_mux.v"
+    - "uart_rx.sv"
+    - "uart_tx.sv"
+    - "uart.sv"
+    - "output_selector.v"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 pinout:
@@ -51,7 +55,7 @@ pinout:
   uio[4]: "uart_rx_valid"
   uio[5]: "uart_rx_ready"
   uio[6]: ""
-  uio[7]: ""
+  uio[7]: "pulse_out"
 
 # Do not change!
 yaml_version: 6
