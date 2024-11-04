@@ -27,7 +27,7 @@ pinout:
   ui[0]: "freq_in"
   ui[1]: "out_sel[0]"
   ui[2]: "out_sel[1]"
-  ui[3]: ""
+  ui[3]: "out_sel[2]"
   ui[4]: ""
   ui[5]: ""
   ui[6]: ""
